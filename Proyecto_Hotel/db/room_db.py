@@ -44,3 +44,11 @@ def get_room(room_number: str):
 def update_room(room_in_db: RoomInDB):
     database_room[room_in_db.id_room] = room_in_db
     return room_in_db
+
+generator = {"id":0}
+
+def create_room(room_in_db: RoomInDB):
+    generator["id"] = generator["id"] + 1
+    room_in_db.id_room = generator["id"]
+    database_room.append(room_in_db)
+    return room_in_db
