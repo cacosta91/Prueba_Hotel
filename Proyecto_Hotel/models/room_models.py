@@ -1,14 +1,13 @@
 from pydantic import BaseModel
 
 class RoomIn(BaseModel):
-    id_room: int
     room_number: str
-    state: str
+    state_room: str
     capacity: int
     
 
 class RoomOut(BaseModel):
+    id_room: int
     room_number: str
-    state: str
-    booking_number: str
+    state_room: str
     capacity: int
