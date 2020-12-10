@@ -5,10 +5,9 @@ class RoomInDB(BaseModel):
     id_room: int
     room_number: str
     state_room: str
-    capacity: int
-    
+    capacity: int    
 
-database_room = Dict[str, RoomInDB]
+database_room = Dict[int, RoomInDB]
 
 database_room = {
     1: RoomInDB(**{"id_room":1,
@@ -45,10 +44,8 @@ def update_room(room_in_db: RoomInDB):
     database_room[room_in_db.id_room] = room_in_db
     return room_in_db
 
-generator = {"id":0}
-
 def create_room(room_in_db: RoomInDB):
-    generator["id"] = generator["id"] + 1
-    room_in_db.id_room = generator["id"]
-    database_room.append(room_in_db)
+    autoid = len(database_room)+1
+    room_in_db.id_room = autoid
+    database_room[autoid] = room_in_db
     return room_in_db
