@@ -8,6 +8,7 @@ from fastapi import HTTPException
 
 router = APIRouter()
 
+
 @router.post("/create_room/")
 async def create_rooms(room: RoomInDB):
     return create_room(room)
